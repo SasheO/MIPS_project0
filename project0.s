@@ -100,6 +100,11 @@ syscall # print new line
 li $v0, 4 # print string
 la $a0, 4($s0) # so that the part of string s0 from index 4 gets printed
 syscall
+lb $t0, 4($s0) # temporarily store the value of index 4 in $t0
+sb $zero, 4($s0) # temporarily set index 4 to null char
+la $a0, 0($s0) # so that the string gets printed from beginning to null char
+syscall
+sb $t0, 4($s0) # revert the character in index 4 to previous value
 
 li $v0, 10 # end program
 syscall
