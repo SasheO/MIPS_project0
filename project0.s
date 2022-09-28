@@ -17,6 +17,7 @@ li $v0, 11 # print char
 li $a0, 10 # null character is ascii 10
 syscall # print new line
 
+
 li $v0, 4 # print string
 la $a0, 7($s0) # so that the part of string s0 from index 7 gets printed
 syscall
@@ -26,9 +27,14 @@ la $a0, 0($s0) # so that the string gets printed from beginning to null char
 syscall
 sb $t0, 7($s0) # revert the character in index 7 to previous value
 
-li $v0, 11
+li $v0, 11 # print char
 li $a0, 10
 syscall # print new line
+
+
+li $v0, 4 # print string
+la $a0, 8($s0) # so that the part of string s0 from index 8 gets printed
+syscall
 
 li $v0, 10 # end program
 syscall
