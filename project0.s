@@ -50,6 +50,9 @@ li $v0, 4 # print string
 la $a0, 0($s0) # print string from beginning
 syscall
 
+li $v0, 11 # print char
+li $a0, 10
+syscall # print new line
 
 
 li $v0, 10 # end program
