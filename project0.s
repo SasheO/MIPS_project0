@@ -106,5 +106,10 @@ la $a0, 0($s0) # so that the string gets printed from beginning to null char
 syscall
 sb $t0, 4($s0) # revert the character in index 4 to previous value
 
+li $v0, 11 # print char
+li $a0, 10
+syscall # print new line
+
+
 li $v0, 10 # end program
 syscall
