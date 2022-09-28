@@ -13,6 +13,8 @@ sb $zero, 6($s0) # temporarily set index 6 to null character (00 in ascii, hence
 la $a0, 0($s0) # so that the string gets printed from beginning to null character
 syscall
 
+sb $t0, 6($s0) # revert the character in index 6 to previous value
+
 li $v0, 11 # print char
 li $a0, 10 # null character is ascii 10
 syscall # print new line
