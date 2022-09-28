@@ -55,5 +55,10 @@ li $a0, 10
 syscall # print new line
 
 
+li $v0, 4 # print string
+la $a0, 1($s0) # so that the part of string s0 from index 1 gets printed
+syscall
+
+
 li $v0, 10 # end program
 syscall
