@@ -58,7 +58,11 @@ syscall # print new line
 li $v0, 4 # print string
 la $a0, 1($s0) # so that the part of string s0 from index 1 gets printed
 syscall
-
+lb $t0, 1($s0) # temporarily store the value of index 1 in $t0
+sb $zero, 1($s0) # temporarily set index 1 to null char
+la $a0, 0($s0) # so that the string gets printed from beginning to null char
+syscall
+sb $t0, 1($s0) # revert the character in index 1 to previous value
 
 li $v0, 10 # end program
 syscall
